@@ -2,15 +2,15 @@ const outputText = document.querySelector('.outputText');
 const player = document.querySelector('#playerScore');
 const computer = document.querySelector('#computerScore');
 
+let playerScore = 0;
+let computerScore = 0;
+
+
 function computerPlay() {
     const options = ['rock', 'paper', 'scissors'];
     let randomNum = Math.floor(Math.random() * 3);
     return options[randomNum];
 }
-
-let playerScore = 0;
-let computerScore = 0;
-
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -34,21 +34,21 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-function game(playerSelection, computerSelection) {
-    for (let i = 0; i < 10; i++) {
-        if (playerScore !== 3 && computerScore !== 3) {
-            // const playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
-            // const computerSelection = computerPlay();
+// function game(playerSelection, computerSelection) {
+//     for (let i = 0; i < 10; i++) {
+//         if (playerScore !== 3 && computerScore !== 3) {
+//             // const playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
+//             // const computerSelection = computerPlay();
 
-            playRound(playerSelection, computerSelection);
-            console.log(playerScore);
-        } else if (playerScore > computerScore) {
-            return console.log(`You win! ${playerScore} to ${computerScore}`);
-        } else {
-            return console.log(`You lose! ${playerScore} to ${computerScore}`);
-        }
-    }
-}
+//             playRound(playerSelection, computerSelection);
+//             console.log(playerScore);
+//         } else if (playerScore > computerScore) {
+//             return console.log(`You win! ${playerScore} to ${computerScore}`);
+//         } else {
+//             return console.log(`You lose! ${playerScore} to ${computerScore}`);
+//         }
+//     }
+// }
 
 // game();
 
@@ -59,20 +59,20 @@ const scissors = document.querySelector('#scissors');
 rock.addEventListener('click', () => {
     playerSelection = 'rock'
     computerSelection = computerPlay();
-    // playRound(playerSelection, computerSelection)
-    game(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection)
+    // game(playerSelection, computerSelection);
 })
 
 paper.addEventListener('click', () => {
     playerSelection = 'paper'
     computerSelection = computerPlay();
-    // playRound(playerSelection, computerSelection)
-    game(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection)
+    // game(playerSelection, computerSelection);
 })
 
 scissors.addEventListener('click', () => {
     playerSelection = 'scissors'
     computerSelection = computerPlay();
-    // playRound(playerSelection, computerSelection)
-    game(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection)
+    // game(playerSelection, computerSelection);
 })
