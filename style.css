@@ -7,6 +7,10 @@ body {
     font-size: 12px;
 }
 
+.container {
+    height: 100vh;
+}
+
 .title {
     text-align: center;
     margin: 50px auto 25px auto;
@@ -23,10 +27,10 @@ body {
 
 .results {
     display: flex;
-    height: 50vh;
+    height: 40vh;
     align-items: center;
     justify-content: center;
-    margin: 50px 200px;
+    margin: 50px 400px;
     margin-top: 0px;
 }
 
@@ -65,12 +69,44 @@ body {
 }
 
 .option {
+    cursor: pointer;
+    width: 170px;
     margin: 0px 20px;
     padding: 20px;
     background-color: #457b9d;
     color: white;
     border-radius: 8px;
     border-color: #457b9d;
+    font-size: 1.5rem;
+}
+
+.option:disabled {
+    cursor: pointer;
+    width: 170px;
+    margin: 0px 20px;
+    padding: 20px;
+    background-color: #1d3557;
+    color: grey;
+    border-radius: 8px;
+    border-color: #1d3557;
+    font-size: 1.5rem;
+}
+
+.resetDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.reset {
+    cursor: pointer;
+    margin: 0px 20px;
+    padding: 10px;
+    background-color: #f1faee;
+    color: #1d3557;
+    border-radius: 8px;
+    border-color: #f1faee;
     font-size: 1.5rem;
 }
 

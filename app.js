@@ -1,10 +1,36 @@
 const outputText = document.querySelector('.outputText');
 const player = document.querySelector('#playerScore');
 const computer = document.querySelector('#computerScore');
+const btns = document.querySelectorAll('.option');
+const resetBtn = document.querySelector('.reset');
 
 let playerScore = 0;
 let computerScore = 0;
 
+function isGameOver() {
+    if (playerScore === 5) {
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].disabled = true;
+        }
+        outputText.textContent = "YOU WIN!";
+    } else if (computerScore === 5) {
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].disabled = true;
+        }
+        outputText.textContent = "YOU LOSE :(";
+    };
+}
+
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    player.textContent = 0;
+    computer.textContent = 0;
+    outputText.textContent = "";
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].disabled = false;
+    }
+}
 
 function computerPlay() {
     const options = ['rock', 'paper', 'scissors'];
@@ -59,20 +85,24 @@ const scissors = document.querySelector('#scissors');
 rock.addEventListener('click', () => {
     playerSelection = 'rock'
     computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection)
-    // game(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
+    isGameOver();
 })
 
 paper.addEventListener('click', () => {
     playerSelection = 'paper'
     computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection)
-    // game(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
+    isGameOver();
 })
 
 scissors.addEventListener('click', () => {
     playerSelection = 'scissors'
     computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection)
-    // game(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
+    isGameOver();
+})
+
+resetBtn.addEventListener('click', () => {
+    reset();
 })
